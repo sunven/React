@@ -1,10 +1,10 @@
 var SayHello = React.createClass({
 	getInitialState:function(){
-		return {laoding:true,error:null,data:null};
+		return {loading:true,error:null,data:null};
 	},
 	componentDidMount:function(){
 		this.props.promise.then(
-			data=> this.setState({loading:false,data:value}),
+			value=> this.setState({loading:false,data:value}),
 			error=> this.setState({loading:false,error:error}));
 	},
 	render: function() {
@@ -13,6 +13,7 @@ var SayHello = React.createClass({
 		}else if(this.state.error!==null){
 			return <span>Error:{this.state.error.message}</span>;
 		}else{
+			//alert(this.state.data);
 			var repos=this.state.data.items;
 			var repoList=repos.map(function(repo){
 				return (<li><a href={repo.html_url}/>{repo.name}({repo.stargazers_count} stars) <br/> {repo.description}</li>);
