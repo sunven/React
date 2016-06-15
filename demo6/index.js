@@ -1,5 +1,5 @@
 var SayHello = React.createClass({
-	protoTypes:{
+	propTypes:{
 		title:React.PropTypes.string.isRequired
 	},
 	render: function() {
@@ -16,4 +16,4 @@ var SayHello = React.createClass({
 // 	}
 // });
 var data=1;
-ReactDOM.render(<SayHello />, document.getElementById("example"));
+ReactDOM.render(<SayHello title={data} />, document.getElementById("example"));
